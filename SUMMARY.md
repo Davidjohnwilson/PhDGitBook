@@ -9,4 +9,5 @@
 * [Mathematical Description of Problems for CAD](mathematical_description_of_problems_for_cad/README.md)
 * [A General Framework for CAD](a_general_framework_for_cad/README.md)
 * [Future Work and Conclusions](future_work_and_conclusions/README.md)
+* [`CADAssistant` Implementation](implementation/README.md)
 

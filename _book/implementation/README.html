@@ -1,0 +1,873 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>`CADAssistant` Implementation | Advances in Cylindrical Algebraic Decomposition</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    
+    <link rel="prev" href="../future_work_and_conclusions/README.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="9" data-basepath=".." data-revision="1411708369237">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Front Matter
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="introduction/README.html">
+            
+                
+                    <a href="../introduction/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="background_material/README.html">
+            
+                
+                    <a href="../background_material/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Background Material
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="truth_table_invariant_cad/README.html">
+            
+                
+                    <a href="../truth_table_invariant_cad/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         Truth Table Invariant CAD
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="cylindrical_algebraic_sub-decompositions/README.html">
+            
+                
+                    <a href="../cylindrical_algebraic_sub-decompositions/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         Cylindrical Algebraic sub-Decompositions
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="formulating_problems_for_cad/README.html">
+            
+                
+                    <a href="../formulating_problems_for_cad/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         Formulating Problems for CAD
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="mathematical_description_of_problems_for_cad/README.html">
+            
+                
+                    <a href="../mathematical_description_of_problems_for_cad/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         Mathematical Description of Problems for CAD
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7" data-path="a_general_framework_for_cad/README.html">
+            
+                
+                    <a href="../a_general_framework_for_cad/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         A General Framework for CAD
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" data-path="future_work_and_conclusions/README.html">
+            
+                
+                    <a href="../future_work_and_conclusions/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                         Future Work and Conclusions
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="9" data-path="implementation/README.html">
+            
+                
+                    <a href="../implementation/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                         `CADAssistant` Implementation
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Advances in Cylindrical Algebraic Decomposition</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_419">
+                    
+                        <h1 id="cadassistant-implementation"><code>CADAssistant</code> Implementation</h1>
+<pre><code class="lang-python"><span class="hljs-comment"># CAD Assistant Program</span>
+
+<span class="hljs-comment"># Have access to the command line arguments</span>
+<span class="hljs-keyword">import</span> sys
+
+<span class="hljs-comment"># Store them in arglist</span>
+arglist = sys.argv[<span class="hljs-number">1</span>:]
+
+welcome = <span class="hljs-string">"""
+############################################################
+#     CADAssistant                                         #
+#          by David Wilson (D.J.Wilson@bath.ac.uk)         #
+#                                                          #
+#     A tool for computing CADs with various technologies  #
+#   and techniques.                                        #
+#                                                          #
+############################################################
+
+"""</span>
+
+helpmessage = <span class="hljs-string">"""
+
+This is Version 1.0 of CADAssistant.
+
+CADAssistant can be run in 'manual' or 'interactive' mode (default is the latter) by specifying either choice in the
+command line arguments.
+
+The name, polynomials, and variables of the problem should be input.
+
+The polynomials should be given as a list within square brackets and separated by commas. Multiplication of both
+constants and variables should be given using the asterisk symbol: '*'. Raising a variable to a power should be given
+with the carat symbol: '^'.
+
+Variables should be given as a comma-separated list within square brackets.
+
+For example:
+3D Example
+[x^2+y^2+z^2-1, 4*x*y*z-1]
+[x,y,z]
+
+"""</span>
+
+<span class="hljs-comment"># Create CAD error exception</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CADError</span><span class="hljs-params">( Exception )</span>:</span> <span class="hljs-keyword">pass</span>
+
+<span class="hljs-comment"># CadProblem Class</span>
+<span class="hljs-comment"># Core class of a CAD problem consisting of it's name, polynomials</span>
+<span class="hljs-comment"># and variables. Includes procedure to output a printable string</span>
+<span class="hljs-comment"># of the problem.</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CadProblem</span>:</span>
+    name = <span class="hljs-string">""</span>
+    polys = []
+    variables = []
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,name,polys,variables)</span>:</span>
+        self.name = name
+        self.polys = polys
+        self.variables = variables
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printCAD</span><span class="hljs-params">(self)</span>:</span>
+        printstr = <span class="hljs-string">""</span>
+        printstr += <span class="hljs-string">"Name : \t"</span> + self.name + <span class="hljs-string">"\n"</span>
+        printstr += <span class="hljs-string">"Polys: \t"</span> + <span class="hljs-string">", "</span>.join(self.polys) + <span class="hljs-string">"\n"</span>
+        printstr += <span class="hljs-string">"Vars : \t"</span> + <span class="hljs-string">","</span>.join(self.variables) + <span class="hljs-string">"\n"</span>
+        <span class="hljs-keyword">return</span> printstr
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">listOfPolys</span><span class="hljs-params">(self)</span>:</span>
+        liststr = <span class="hljs-string">"["</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(self.polys)):
+            liststr += self.polys[i] + <span class="hljs-string">", "</span>
+        liststr = liststr[:-<span class="hljs-number">2</span>] + <span class="hljs-string">"]"</span>
+        <span class="hljs-keyword">return</span> liststr
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">listOfVariables</span><span class="hljs-params">(self)</span>:</span>
+        liststr = <span class="hljs-string">"["</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(self.variables)):
+            liststr += self.variables[i] + <span class="hljs-string">", "</span>
+        liststr = liststr[:-<span class="hljs-number">2</span>] + <span class="hljs-string">"]"</span>
+        <span class="hljs-keyword">return</span> liststr
+
+<span class="hljs-comment"># CadProblemMethod Class (extends CadProblem)</span>
+<span class="hljs-comment"># A CAD problem along with choices of how to construct it, what</span>
+<span class="hljs-comment"># it needs to be invariant with respect to, and whether it uses</span>
+<span class="hljs-comment"># any subCAD techniques. Includes procedures to set these</span>
+<span class="hljs-comment"># parameters as well as produce printable strings for the CAD</span>
+<span class="hljs-comment"># acronym and the overall problem.</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CadProblemMethod</span><span class="hljs-params">(CadProblem)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,name,polys,variables,constr,inva,subCAD)</span>:</span>
+        CadProblem.__init__(self,name,polys,variables)
+        self.constr = constr
+        self.inva   = inva
+        self.subCAD = subCAD
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setConstr</span><span class="hljs-params">(self,constr)</span>:</span>
+        self.constr = constr
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setInva</span><span class="hljs-params">(self,inva)</span>:</span>
+        self.inva   = inva
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setSubCAD</span><span class="hljs-params">(self,subCAD)</span>:</span>
+        self.subCAD = subCAD
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printCADproblem</span><span class="hljs-params">(self)</span>:</span>
+        printstr = self.printCAD()
+        printstr += <span class="hljs-string">"CAD : \t"</span> + self.CADacronym()
+        <span class="hljs-keyword">return</span> printstr  + <span class="hljs-string">"\n"</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CADacronym</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment">#Simple function to return correct abbreviation</span>
+        CADstring = <span class="hljs-string">"CAD"</span>
+        <span class="hljs-keyword">if</span> self.inva.lower() == <span class="hljs-string">"sign"</span> <span class="hljs-keyword">or</span> self.inva.lower() == <span class="hljs-string">"si"</span>:
+            CADstring = <span class="hljs-string">"SI"</span>+CADstring
+        <span class="hljs-keyword">elif</span> self.inva.lower() == <span class="hljs-string">"order"</span> <span class="hljs-keyword">or</span> self.inva.lower() == <span class="hljs-string">"oi"</span>:
+            CADstring = <span class="hljs-string">"OI"</span>+CADstring
+        <span class="hljs-keyword">elif</span> self.inva.lower() == <span class="hljs-string">"equational constraint"</span> <span class="hljs-keyword">or</span> self.inva.lower() == <span class="hljs-string">"ec"</span>:
+            CADstring = <span class="hljs-string">"EC"</span>+CADstring
+        <span class="hljs-keyword">elif</span> self.inva.lower() == <span class="hljs-string">"truth table"</span> <span class="hljs-keyword">or</span> self.inva.lower() == <span class="hljs-string">"tti"</span>:
+            CADstring = <span class="hljs-string">"TTI"</span>+CADstring
+
+        <span class="hljs-keyword">if</span> self.constr.lower() == <span class="hljs-string">"projection"</span> <span class="hljs-keyword">or</span> self.constr.lower() == <span class="hljs-string">"pl"</span>:
+            CADstring = <span class="hljs-string">"PL-"</span>+CADstring
+        <span class="hljs-keyword">elif</span> self.constr.lower() == <span class="hljs-string">"triangular sets"</span> <span class="hljs-keyword">or</span> self.constr.lower() == <span class="hljs-string">"regular chains"</span> <span class="hljs-keyword">or</span> self.constr.lower() == <span class="hljs-string">"t"</span> <span class="hljs-keyword">or</span> self.constr.lower() == <span class="hljs-string">"rc"</span>:
+            CADstring = <span class="hljs-string">"RC-"</span>+CADstring
+
+        <span class="hljs-keyword">if</span> self.subCAD.lower() == <span class="hljs-string">"variety"</span> <span class="hljs-keyword">or</span> self.subCAD.lower() == <span class="hljs-string">"v"</span>:
+            CADstring = <span class="hljs-string">"V-"</span>+CADstring
+        <span class="hljs-keyword">elif</span> self.subCAD.lower() == <span class="hljs-string">"layered"</span> <span class="hljs-keyword">or</span> self.subCAD.lower() == <span class="hljs-string">"l"</span>:
+            CADstring = <span class="hljs-string">"L-"</span>+CADstring
+        <span class="hljs-keyword">elif</span> self.subCAD.lower() == <span class="hljs-string">"layered variety"</span> <span class="hljs-keyword">or</span> self.subCAD.lower() == <span class="hljs-string">"lv"</span>:
+            CADstring = <span class="hljs-string">"LV-"</span>+CADstring
+
+        <span class="hljs-keyword">return</span> CADstring <span class="hljs-comment">#subCAD+"-"+constr+"-"+inva+"CAD"</span>
+
+<span class="hljs-comment"># CadTTICAD Class (extends CadProblemMethod)</span>
+<span class="hljs-comment"># A CAD Problem with the above choices and lists describing the</span>
+<span class="hljs-comment"># clauses and equational constraints. Includes procedures to check</span>
+<span class="hljs-comment"># validity of choices, set choices, and produce a printable string</span>
+<span class="hljs-comment"># describing the CAD problem.</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CadTTICAD</span><span class="hljs-params">(CadProblemMethod)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,name,polys,variables,constr,inva,subCAD,clauses,eqcons)</span>:</span>
+        CadProblemMethod.__init__(self,name,polys,variables,constr,inva,subCAD)
+        self.clauses = clauses
+        self.eqcons = eqcons
+        <span class="hljs-comment">#self.checkClauses()</span>
+
+    <span class="hljs-comment">#Check input is a valid set of clauses - shouldn't be used directly by user!</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">checkClausesInp</span><span class="hljs-params">(self,clauses)</span>:</span>
+         <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> clauses:
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> i:
+                <span class="hljs-keyword">if</span> j&gt;len(self.polys):
+                    <span class="hljs-keyword">raise</span> CADError(<span class="hljs-string">"Clause references non-existent poly"</span>)
+
+    <span class="hljs-comment">#Check the defined clauses are correct</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">checkClauses</span><span class="hljs-params">(self)</span>:</span>
+        self.checkClausesInp(self.clauses)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setClauses</span><span class="hljs-params">(self,clauses)</span>:</span>
+        self.checkClausesInp(clauses)
+        self.clauses = clauses
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">checkEqConsInp</span><span class="hljs-params">(self,eqcons)</span>:</span>
+        <span class="hljs-keyword">if</span> len(self.clauses) != len(self.eqcons):
+            CADError(<span class="hljs-string">"Number of clauses != Number of EqCons!"</span>)
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(self.clauses)):
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> eqcons[i]:
+                <span class="hljs-keyword">if</span> j <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self.clauses[i]:
+                    CADError(<span class="hljs-string">"Equational Constraint chosen is not part of clause!"</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">checkEqCons</span><span class="hljs-params">(self)</span>:</span>
+        self.checkEqConsInp(self.eqcons)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setEqCons</span><span class="hljs-params">(self,eqcons)</span>:</span>
+        self.eqcons = eqcons
+        self.checkEqConsInp(eqcons)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printTTICADClauses</span><span class="hljs-params">(self)</span>:</span>
+        printstr = <span class="hljs-string">"Clauses:\t"</span>
+        <span class="hljs-keyword">for</span> cl <span class="hljs-keyword">in</span> self.clauses:
+            printstr += <span class="hljs-string">"["</span> + <span class="hljs-string">","</span>.join(map(str,cl)) + <span class="hljs-string">"]\t"</span>
+        printstr += <span class="hljs-string">"\nEqCons :\t"</span>
+        <span class="hljs-keyword">for</span> ec <span class="hljs-keyword">in</span> self.eqcons:
+            printstr += <span class="hljs-string">"["</span> + <span class="hljs-string">","</span>.join(map(str,ec)) + <span class="hljs-string">"]\t\t"</span>
+        <span class="hljs-keyword">return</span> printstr + <span class="hljs-string">"\n"</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printTTICAD</span><span class="hljs-params">(self)</span>:</span>
+        printstr = self.printCADproblem()
+        printstr += self.printTTICADClauses()
+        <span class="hljs-keyword">return</span> printstr + <span class="hljs-string">"\n"</span>
+
+<span class="hljs-comment">#Initialising CAD</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initialisationMethod</span><span class="hljs-params">()</span>:</span>
+    print(welcome)
+    namestr = raw_input(<span class="hljs-string">"Please enter a name for the CAD problem (or 'help'):"</span>)
+
+    <span class="hljs-keyword">if</span> namestr.lower() == <span class="hljs-string">"help"</span>:
+        print(helpmessage)
+        namestr = raw_input(<span class="hljs-string">"Please now enter the name for the CAD problem:"</span>)
+    polystr = raw_input(<span class="hljs-string">"Please enter the polynomials for your problem,\n within square brackets and separated by commas:"</span>)
+    varstr  = raw_input(<span class="hljs-string">"Please enter the variables for your problem,\n within square brackets and separated by commas:"</span>)
+    <span class="hljs-comment"># Separate the inputted polynomials</span>
+    polylist = polystr.split(<span class="hljs-string">','</span>)
+    polylist[<span class="hljs-number">0</span>] = polylist[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>:]     <span class="hljs-comment"># Strip leading '['</span>
+    polylist[-<span class="hljs-number">1</span>] = polylist[-<span class="hljs-number">1</span>][:-<span class="hljs-number">1</span>]  <span class="hljs-comment"># Strip trailing '['</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(polylist)):
+        <span class="hljs-keyword">while</span> (polylist[i][<span class="hljs-number">0</span>] == <span class="hljs-string">' '</span>):
+            polylist[i] = polylist[i][<span class="hljs-number">1</span>:] <span class="hljs-comment"># strip leading ' '</span>
+    <span class="hljs-comment"># Separate the inputted variables</span>
+    varlist  = varstr.split(<span class="hljs-string">','</span>)
+    varlist[<span class="hljs-number">0</span>] = varlist[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>:]       <span class="hljs-comment"># Strip leading '['</span>
+    varlist[-<span class="hljs-number">1</span>] = varlist[-<span class="hljs-number">1</span>][:-<span class="hljs-number">1</span>]    <span class="hljs-comment"># Strip trailing '['</span>
+
+    <span class="hljs-comment"># Initialize CADProblemMethod object</span>
+    currCADproblem = CadProblemMethod(namestr,polylist,varlist,<span class="hljs-string">""</span>,<span class="hljs-string">""</span>,<span class="hljs-string">""</span>)
+    print(<span class="hljs-string">"\nCurrent Problem:\n"</span>+currCADproblem.printCADproblem())
+
+    <span class="hljs-keyword">return</span> currCADproblem
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">polyToQEPCAD</span><span class="hljs-params">(polynom)</span>:</span>
+    polynom = polynom.replace(<span class="hljs-string">'*'</span>, <span class="hljs-string">' '</span>)
+    polynom = polynom.replace(<span class="hljs-string">'+'</span>, <span class="hljs-string">' + '</span>)
+    polynom = polynom.replace(<span class="hljs-string">'-'</span>, <span class="hljs-string">' - '</span>)
+    <span class="hljs-keyword">return</span> polynom
+
+
+<span class="hljs-comment">#manualMethod - let's the user choose how to construct their CAD</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">manualMethod</span><span class="hljs-params">()</span>:</span>
+    currCADproblem = initialisationMethod()
+
+    constrstr = raw_input(<span class="hljs-string">"Please specify a construction method (default: projection&amp;lifting):"</span>)
+    <span class="hljs-keyword">if</span> constrstr==<span class="hljs-string">""</span>:
+        constrstr = <span class="hljs-string">"PL"</span>
+    currCADproblem.setConstr(constrstr)
+
+    invastr = raw_input(<span class="hljs-string">"Please specify an invariance to build the CAD with respect to (default: sign-invariance):"</span>)
+    <span class="hljs-keyword">if</span> invastr==<span class="hljs-string">""</span>:
+        invastr = <span class="hljs-string">"SI"</span>
+    currCADproblem.setInva(invastr)
+
+    subCADstr = raw_input(<span class="hljs-string">"Please specify any subCAD techniques to use (default: none):"</span>)
+    <span class="hljs-keyword">if</span> subCADstr==<span class="hljs-string">""</span>:
+        subCADstr = <span class="hljs-string">""</span>
+    currCADproblem.setSubCAD(subCADstr)
+
+    print(<span class="hljs-string">"\nCurrent Problem:\n"</span>+currCADproblem.printCADproblem())
+
+    print(<span class="hljs-string">"Checking whether we are dealing with Equational Constraints or TTICAD...\n"</span>)
+    <span class="hljs-keyword">if</span> currCADproblem.inva.lower() == <span class="hljs-string">"eq"</span> <span class="hljs-keyword">or</span> currCADproblem.inva.lower() == <span class="hljs-string">"tti"</span> <span class="hljs-keyword">or</span> currCADproblem.inva.lower() == <span class="hljs-string">"truth table"</span>:
+        print(<span class="hljs-string">"Dealing with Equational constraints. Now identifying clauses.\n"</span>)
+        <span class="hljs-comment"># Cast object into a CadTTICAD object.</span>
+        currCADproblem.__class__ = CadTTICAD
+
+        print(<span class="hljs-string">"\nPolynomials are:"</span>)
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> xrange(len(currCADproblem.polys)):
+                print(<span class="hljs-string">"Poly "</span> + str(j) + <span class="hljs-string">": "</span> + str(currCADproblem.polys[j]))
+
+
+        clausestr = raw_input(<span class="hljs-string">"Please enter in the clauses of the TTICAD (as a list of lists identifying the correct\n"</span>
+                              <span class="hljs-string">" polynomials), or if dealing with equational constraints leave empty: "</span>)
+        <span class="hljs-keyword">if</span> clausestr == <span class="hljs-string">""</span>:
+            currCADproblem.setClauses([list(xrange(len(currCADproblem.polys)))])
+            print(currCADproblem.clauses)
+        <span class="hljs-keyword">else</span>:
+            clausenums = []   <span class="hljs-comment">#clauses as numbers</span>
+            clauselist = clausestr[<span class="hljs-number">1</span>:-<span class="hljs-number">1</span>].replace(<span class="hljs-string">'['</span>,<span class="hljs-string">'|'</span>)
+            clauselist = clauselist.replace(<span class="hljs-string">']'</span>,<span class="hljs-string">'|'</span>)
+            clauselist = clauselist.split(<span class="hljs-string">'|'</span>) <span class="hljs-comment">#split according to closing brackets</span>
+            clauselist = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> clauselist <span class="hljs-keyword">if</span> i != <span class="hljs-string">''</span>]
+            clauselist = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> clauselist <span class="hljs-keyword">if</span> i != <span class="hljs-string">','</span>]
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(clauselist)):   <span class="hljs-comment">#ignore final bracket</span>
+                indivclause = []
+                indivclauselist = clauselist[i].split(<span class="hljs-string">','</span>)
+                <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> xrange(len(indivclauselist)):
+                    indivclause.append(int(indivclauselist[j]))
+                clausenums.append(indivclause)
+            currCADproblem.setClauses(clausenums)
+
+        EClist = []
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.clauses)):
+            print(<span class="hljs-string">"\nClause "</span> + str(i) + <span class="hljs-string">":"</span>)
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> currCADproblem.clauses[i]:
+                print(<span class="hljs-string">"Poly "</span> + str(j) + <span class="hljs-string">": "</span> + str(currCADproblem.polys[j]))
+            clauseEC = raw_input(<span class="hljs-string">"Select the equational constraint for this clause: "</span>)
+            EClist.append([clauseEC])
+        currCADproblem.setEqCons(EClist)
+
+        print(<span class="hljs-string">"\n\nSummary of TTICAD Problem:\n\n"</span> + currCADproblem.printTTICAD())
+
+        <span class="hljs-comment">#eqconsstr = raw_input("")</span>
+        <span class="hljs-comment">#currCADproblem.setEqCons([[1]])</span>
+        <span class="hljs-comment">#print(currCADproblem.printTTICADClauses())</span>
+
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">"Dealing with non-equational constraint based CAD"</span>)
+
+    mapleoutputstr = raw_input(<span class="hljs-string">"Would you like the input for Maple?"</span>).lower()
+    <span class="hljs-keyword">if</span> mapleoutputstr == <span class="hljs-string">"y"</span> <span class="hljs-keyword">or</span> mapleoutputstr == <span class="hljs-string">"yes"</span>:
+        mapleoutputstr = <span class="hljs-string">"Cad := "</span> + currCADproblem.subCAD.upper()
+        <span class="hljs-keyword">if</span> currCADproblem.inva.lower() == <span class="hljs-string">"eq"</span>:
+            mapleoutputstr += <span class="hljs-string">"ECCAD(["</span>
+            mapleoutputstr += currCADproblem.polys[currCADproblem.eqcons[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]] + <span class="hljs-string">",["</span>
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.polys)):
+                <span class="hljs-keyword">if</span> i != currCADproblem.eqcons[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]:
+                    mapleoutputstr += currCADproblem.polys[i] + <span class="hljs-string">","</span>
+            mapleoutputstr = mapleoutputstr[:-<span class="hljs-number">1</span>] + <span class="hljs-string">"]]"</span>
+
+        <span class="hljs-keyword">if</span> currCADproblem.inva.lower() == <span class="hljs-string">"tti"</span> <span class="hljs-keyword">or</span> currCADproblem.inva.lower() == <span class="hljs-string">"truth table"</span>:
+            mapleoutputstr += <span class="hljs-string">"TTICAD(["</span>
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.clauses)):
+                mapleoutputstr += <span class="hljs-string">"["</span> + currCADproblem.polys[int(currCADproblem.eqcons[i][<span class="hljs-number">0</span>])] + <span class="hljs-string">",["</span>
+                <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> currCADproblem.clauses[i]:
+                    <span class="hljs-keyword">if</span> int(j) != int(currCADproblem.eqcons[i][<span class="hljs-number">0</span>]):
+                        mapleoutputstr += currCADproblem.polys[j] + <span class="hljs-string">","</span>
+                mapleoutputstr = mapleoutputstr[:-<span class="hljs-number">1</span>] +  <span class="hljs-string">"]],"</span>
+            mapleoutputstr = mapleoutputstr[:-<span class="hljs-number">1</span>] +  <span class="hljs-string">"]"</span>
+
+        mapleoutputstr += <span class="hljs-string">","</span> + currCADproblem.listOfVariables()
+        mapleoutputstr += <span class="hljs-string">");"</span>
+
+        print(mapleoutputstr)
+
+<span class="hljs-comment">#Interactive Method tries to discover the best formulation</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">interactiveMethod</span><span class="hljs-params">()</span>:</span>
+    currCADproblem = initialisationMethod()
+
+    <span class="hljs-comment"># VARIABLE HEURISTIC CHOICE</span>
+
+    variableheuristic = raw_input(<span class="hljs-string">"Do you wish to use a heuristic to choose a variable ordering? [Y/n] : "</span>).lower()
+    <span class="hljs-keyword">if</span> variableheuristic == <span class="hljs-string">"n"</span> <span class="hljs-keyword">or</span> variableheuristic == <span class="hljs-string">"no"</span>:
+        variableheuristic = <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">else</span>:
+        variableheuristic = <span class="hljs-keyword">True</span>
+
+    <span class="hljs-keyword">if</span> variableheuristic:
+        print(<span class="hljs-string">"Please load Projection CAD to use any of the following heuristics.\n"</span>)
+
+        manualheuristic = raw_input(<span class="hljs-string">"Do you wish to pick the heuristic manually [m], or automatically [a]? [m/A] :"</span>).lower()
+        <span class="hljs-keyword">if</span> manualheuristic == <span class="hljs-string">"m"</span> <span class="hljs-keyword">or</span> manualheuristic == <span class="hljs-string">"manual"</span> <span class="hljs-keyword">or</span> manualheuristic == <span class="hljs-string">"manually"</span>:
+            manualheuristic = <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">else</span>:
+            manualheuristic = <span class="hljs-keyword">False</span>
+
+        <span class="hljs-keyword">if</span> manualheuristic:
+            heuristicchoice = raw_input(<span class="hljs-string">"Please select a heuristic to use from:\n Brown's Heuristic [B], sotd [S], ndrr [N], or 1-Layered Heuristic [LAY]\n (the default is Brown's Heuristic). [B/s/n/lay] :"</span>).lower()
+            <span class="hljs-keyword">if</span> heuristicchoice == <span class="hljs-string">"s"</span> <span class="hljs-keyword">or</span> heuristicchoice == <span class="hljs-string">"sotd"</span>:
+                heuristicchoice = <span class="hljs-string">"S"</span>
+            <span class="hljs-keyword">elif</span> heuristicchoice == <span class="hljs-string">"n"</span> <span class="hljs-keyword">or</span> heuristicchoice == <span class="hljs-string">"ndrr"</span>:
+                heuristicchoice = <span class="hljs-string">"N"</span>
+            <span class="hljs-keyword">elif</span> heuristicchoice == <span class="hljs-string">"lay"</span> <span class="hljs-keyword">or</span> heuristicchoice == <span class="hljs-string">"layered"</span> <span class="hljs-keyword">or</span> heuristicchoice == <span class="hljs-string">"l"</span>:
+                heuristicchoice = <span class="hljs-string">"LayeredHeuristic"</span>
+            <span class="hljs-keyword">else</span>:
+                heuristicchoice = <span class="hljs-string">"BrownBasic"</span>
+        <span class="hljs-keyword">else</span>:
+            heuristicchoice = raw_input(<span class="hljs-string">"Do you want a quick heuristic that may be less accurate [Q], or a slower heuristic that is more accurate [S]? [Q/s] :"</span>).lower()
+            <span class="hljs-keyword">if</span> heuristicchoice == <span class="hljs-string">"s"</span> <span class="hljs-keyword">or</span> heuristicchoice == <span class="hljs-string">"slow"</span>:
+                heuristicchoice = <span class="hljs-string">"LayeredHeuristic"</span>
+            <span class="hljs-keyword">else</span>:
+                heuristicchoice = <span class="hljs-string">"BrownBasic"</span>
+
+        print(<span class="hljs-string">"Please copy the following code into your Maple window:"</span>)
+        heurstr = <span class="hljs-string">"S:=VariableOrderingHeuristic(["</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.variables)):
+            heurstr += currCADproblem.variables[i] + <span class="hljs-string">", "</span>
+        heurstr = heurstr[:-<span class="hljs-number">2</span>]+<span class="hljs-string">"], ["</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.polys)):
+            heurstr += currCADproblem.polys[i] + <span class="hljs-string">", "</span>
+        heurstr = heurstr[:-<span class="hljs-number">2</span>]+<span class="hljs-string">"]"</span>
+        heurstr += <span class="hljs-string">",heuristic='"</span>
+        heurstr += heuristicchoice
+        heurstr += <span class="hljs-string">"',SeeAll=false);\n"</span>
+        print(heurstr)
+
+        heurvars = raw_input(<span class="hljs-string">"Please paste the output from the above command: "</span>)
+
+         <span class="hljs-comment"># Separate the inputted variables</span>
+        heurvars = heurvars.split(<span class="hljs-string">','</span>)
+        heurvars[<span class="hljs-number">0</span>] = heurvars[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>:]       <span class="hljs-comment"># Strip leading '['</span>
+        heurvars[-<span class="hljs-number">1</span>] = heurvars[-<span class="hljs-number">1</span>][:-<span class="hljs-number">1</span>]    <span class="hljs-comment"># Strip trailing '['</span>
+        currCADproblem.variables = heurvars
+        print(<span class="hljs-string">"Variable ordering has been successfully changed."</span>)
+
+
+    <span class="hljs-comment"># ONE LAYERED CAD CHOICE</span>
+
+    strictineq = raw_input(<span class="hljs-string">"Does your problem involve only strict inequalities? [y/N] : "</span>).lower()
+    <span class="hljs-keyword">if</span> strictineq == <span class="hljs-string">"y"</span> <span class="hljs-keyword">or</span> strictineq == <span class="hljs-string">"yes"</span>:
+        strictineq = <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">else</span>:
+        strictineq = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-keyword">if</span> strictineq:
+        print(<span class="hljs-string">"You should use a 1-layered CAD."</span>)
+        projectioncadstr = raw_input(<span class="hljs-string">"Would you like to use ProjectionCAD [P] or Qepcad [Q]? [P/q] :"</span>).lower()
+        <span class="hljs-keyword">if</span> projectioncadstr == <span class="hljs-string">"q"</span> <span class="hljs-keyword">or</span> projectioncadstr == <span class="hljs-string">"qepcad"</span>:
+            projectioncadstr = <span class="hljs-keyword">False</span>
+        <span class="hljs-keyword">else</span>:
+            projectioncadstr = <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">if</span> projectioncadstr:
+            print(<span class="hljs-string">"Please load Projection CAD and use the following input: "</span>)
+            strictstr = <span class="hljs-string">"C:=LCAD( ["</span>
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.polys)):
+                strictstr += currCADproblem.polys[i] + <span class="hljs-string">", "</span>
+            strictstr = strictstr[:-<span class="hljs-number">2</span>] + <span class="hljs-string">"], 1, ["</span> <span class="hljs-comment">#remove final comma</span>
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.variables)):
+                strictstr += currCADproblem.variables[i] + <span class="hljs-string">", "</span>
+            strictstr = strictstr[:-<span class="hljs-number">2</span>] + <span class="hljs-string">"],method='McCallum'):\n"</span>
+            strictstr += <span class="hljs-string">"nops(C);"</span>
+            print(strictstr)
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">"Please copy the following into Qepcad:"</span>)
+            strictstr = <span class="hljs-string">"["</span> + currCADproblem.name + <span class="hljs-string">"]\n"</span>
+            strictstr = strictstr + <span class="hljs-string">"("</span>
+            numvars = len(currCADproblem.variables)
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(numvars):
+                strictstr += currCADproblem.variables[numvars-(i+<span class="hljs-number">1</span>)] + <span class="hljs-string">","</span>
+            strictstr = strictstr[:-<span class="hljs-number">1</span>] + <span class="hljs-string">")\n"</span>
+            strictstr += str(numvars) + <span class="hljs-string">"\n"</span>
+            strictstr += <span class="hljs-string">"["</span>
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.polys)):
+                strictstr += <span class="hljs-string">"["</span> + currCADproblem.polys[i].replace(<span class="hljs-string">"*"</span>,<span class="hljs-string">" "</span>).replace(<span class="hljs-string">"+"</span>,<span class="hljs-string">" + "</span>).replace(<span class="hljs-string">"-"</span>, <span class="hljs-string">" - "</span>) + <span class="hljs-string">" &gt; 0] /\\ "</span>
+            strictstr = strictstr[:-<span class="hljs-number">4</span>] + <span class="hljs-string">"].\n"</span>
+            strictstr += <span class="hljs-string">"measure-zero-error\ngo\ngo\ngo\nd-fpc-stat\nfinish\n"</span>
+            print(strictstr)
+            <span class="hljs-comment">#pick inequalities</span>
+
+        <span class="hljs-keyword">return</span>
+
+    <span class="hljs-comment"># GROBNER PRECONDITIONING CHOICE</span>
+
+    grobnerpre = raw_input(<span class="hljs-string">"Does your problem involve just a conjunction of equalities that you can use Grobner preconditioning for? [y/N] : "</span>).lower()
+    <span class="hljs-keyword">if</span> grobnerpre==<span class="hljs-string">"y"</span> <span class="hljs-keyword">or</span> grobnerpre==<span class="hljs-string">"yes"</span>:
+        grobnerpre = <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">else</span>:
+        grobnerpre = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-keyword">if</span> grobnerpre:
+        tnoitest = raw_input(<span class="hljs-string">"Do you wish to use TNoI to predict whether preconditioning will be useful? [Y/n] : "</span>).lower()
+        <span class="hljs-keyword">if</span> tnoitest==<span class="hljs-string">"n"</span> <span class="hljs-keyword">or</span> tnoitest==<span class="hljs-string">"no"</span>:
+            tnoitest = <span class="hljs-keyword">False</span>
+        <span class="hljs-keyword">else</span>:
+            tnoitest = <span class="hljs-keyword">True</span>
+
+        <span class="hljs-keyword">if</span> tnoitest:
+            print(<span class="hljs-string">"Please run the following two lines of code: "</span>)
+            print(<span class="hljs-string">"TNoI:=proc(F): add(nops(indets(f)),f in F): end proc:"</span>)
+            print(<span class="hljs-string">"TNoIdiff := TNoI("</span> + currCADproblem.listOfPolys() + <span class="hljs-string">") - TNoI(Groebner[Basis]("</span> + currCADproblem.listOfPolys() + <span class="hljs-string">", plex(op("</span> + currCADproblem.listOfVariables() + <span class="hljs-string">"))));"</span>)
+            grobner = raw_input(<span class="hljs-string">"Is the value positive? [y/n] : "</span>).lower()
+            <span class="hljs-keyword">if</span> grobner==<span class="hljs-string">"y"</span> <span class="hljs-keyword">or</span> grobner==<span class="hljs-string">"yes"</span>:
+                grobner = <span class="hljs-keyword">True</span>
+            <span class="hljs-keyword">elif</span> grobner==<span class="hljs-string">"n"</span> <span class="hljs-keyword">or</span> grobner==<span class="hljs-string">"no"</span>:
+                grobner = <span class="hljs-keyword">False</span>
+        <span class="hljs-keyword">else</span>:
+            grobner = raw_input(<span class="hljs-string">"Do you want to use Grobner preconditioning? [y/N] : "</span>).lower()
+            <span class="hljs-keyword">if</span> grobner==<span class="hljs-string">"y"</span> <span class="hljs-keyword">or</span> grobner==<span class="hljs-string">"yes"</span>:
+                grobner = <span class="hljs-keyword">True</span>
+            <span class="hljs-keyword">else</span>:
+                grobner = <span class="hljs-keyword">False</span>
+
+        <span class="hljs-keyword">if</span> grobner:
+
+            print(<span class="hljs-string">"Please copy the following code into Maple to compute the Grobner basis:"</span>)
+
+            print(<span class="hljs-string">"Groebner[Basis]("</span> + currCADproblem.listOfPolys() + <span class="hljs-string">", plex(op("</span> + currCADproblem.listOfVariables() + <span class="hljs-string">")));"</span>)
+
+            polystr = raw_input(<span class="hljs-string">"Please copy the output:"</span>)
+
+            polylist = polystr.split(<span class="hljs-string">','</span>)
+            polylist[<span class="hljs-number">0</span>] = polylist[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>:]     <span class="hljs-comment"># Strip leading '['</span>
+            polylist[-<span class="hljs-number">1</span>] = polylist[-<span class="hljs-number">1</span>][:-<span class="hljs-number">1</span>]  <span class="hljs-comment"># Strip trailing '['</span>
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(polylist)):
+                <span class="hljs-keyword">while</span> (polylist[i][<span class="hljs-number">0</span>] == <span class="hljs-string">' '</span>):
+                    polylist[i] = polylist[i][<span class="hljs-number">1</span>:] <span class="hljs-comment"># strip leading ' '</span>
+            currCADproblem.polys = polylist
+
+    <span class="hljs-comment"># QUANTIFIER ELIMINATION CHOICE</span>
+
+    qeProblem = raw_input(<span class="hljs-string">"Does your problem require quantifier elimination? [y/N] : "</span>).lower()
+    <span class="hljs-keyword">if</span> qeProblem == <span class="hljs-string">"y"</span>:
+        qeProblem = <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">else</span>:
+        qeProblem = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-keyword">if</span> qeProblem:
+        print(<span class="hljs-string">"You should use Qepcad or ... "</span>)
+        quantifiers = raw_input(<span class="hljs-string">"Please input the quantifiers [in the format '(A x)(E y)']:"</span>)
+        numquants = quantifiers.count(<span class="hljs-string">')'</span>)
+        numfree = len(currCADproblem.variables)-numquants
+
+        qestr = <span class="hljs-string">"[ "</span> + currCADproblem.name + <span class="hljs-string">' ]\n'</span>
+        qestr += <span class="hljs-string">"("</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.variables)):
+            qestr += currCADproblem.variables[i] + <span class="hljs-string">", "</span>
+        qestr = qestr[:-<span class="hljs-number">2</span>] + <span class="hljs-string">")\n"</span>
+        qestr += str(numfree) + <span class="hljs-string">"\n"</span>
+
+        print(<span class="hljs-string">"For each polynomial please enter a relational operator [=, &lt;, &gt;, &lt;=, &gt;=, =/=]."</span>)
+        polyrelations = []
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.polys)):
+            relation = raw_input(<span class="hljs-string">"Relation for "</span> + currCADproblem.polys[i] + <span class="hljs-string">" : "</span>)
+            polyrelations.append(relation)
+
+        print(<span class="hljs-string">"For each consecutive pair of polynomials please enter a boolean relation [/\\, \\/, ==&gt;, &lt;==, &lt;==&gt;]."</span>)
+        boolrelations = []
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.polys)-<span class="hljs-number">1</span>):
+            relation = raw_input(<span class="hljs-string">"Relation for ["</span> + currCADproblem.polys[i] + <span class="hljs-string">"] ??? ["</span> + currCADproblem.polys[i+<span class="hljs-number">1</span>] + <span class="hljs-string">"] : "</span>)
+            boolrelations.append(relation)
+
+        <span class="hljs-comment">#TODO: Negation '~'</span>
+
+        qepcadstr = quantifiers + <span class="hljs-string">"[ "</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(len(currCADproblem.polys)-<span class="hljs-number">1</span>):
+            qepcadstr += <span class="hljs-string">"[ "</span> + polyToQEPCAD(currCADproblem.polys[i]) + <span class="hljs-string">" "</span> +  polyrelations[i] + <span class="hljs-string">" 0 ]"</span>
+            qepcadstr += <span class="hljs-string">" "</span> + boolrelations[i] + <span class="hljs-string">" "</span>
+        <span class="hljs-keyword">if</span> len(currCADproblem.polys)&gt;<span class="hljs-number">1</span>:
+            qepcadstr += <span class="hljs-string">"[ "</span> + polyToQEPCAD(currCADproblem.polys[-<span class="hljs-number">1</span>]) + <span class="hljs-string">" "</span> + polyrelations[-<span class="hljs-number">1</span>] + <span class="hljs-string">" 0 ]"</span>
+        qepcadstr += <span class="hljs-string">" ]."</span>
+
+        qestr += qepcadstr
+
+        print(<span class="hljs-string">"Copy the following input into Qepcad:\n"</span>)
+        print(qestr)
+
+
+
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    <span class="hljs-keyword">if</span> len(arglist)&gt;<span class="hljs-number">0</span>:
+        <span class="hljs-keyword">if</span> arglist[<span class="hljs-number">0</span>].lower() == <span class="hljs-string">'interactive'</span>:
+            <span class="hljs-keyword">print</span> <span class="hljs-string">"Interactive mode enabled.\n"</span>
+            interactiveMethod()
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">print</span> <span class="hljs-string">"Manual mode enabled.\n"</span>
+            manualMethod()
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">"No method specified. Default: interactive mode enabled.\n"</span>
+        interactiveMethod()
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../future_work_and_conclusions/README.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Future Work and Conclusions"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
