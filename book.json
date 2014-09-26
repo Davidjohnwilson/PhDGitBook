@@ -1,0 +1,29 @@
+{
+  "plugins": [
+  "math",
+  "autocover"
+  ],
+  "pluginsConfig": {
+    "autocover": {
+
+      "title": "Advances in Cylindrical Algebraic Decomposition",
+      "author": "David John Wilson",
+      "font": {
+        "size": null,
+        "family": "Impact",
+        "color": '#FFF'
+        },
+        "size": {
+          "w": 1800,
+          "h": 2360
+          },
+          "background": {
+            "color": '#09F'
+          }
+        }
+
+      }
+
+
+    }
+  }
